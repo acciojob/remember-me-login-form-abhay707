@@ -4,6 +4,17 @@ let checkbox = document.getElementById("checkbox");
 let submitBtn = document.getElementById("submit");
 let existBtn = document.getElementById("existing");
 
+window.addEventListener("DOMContentLoaded", () => {
+    if (
+        localStorage.getItem("name") &&
+        localStorage.getItem("password")
+    ) {
+        existBtn.style.display = "block";
+    } else {
+        existBtn.style.display = "none";
+    }
+});
+
 submitBtn.addEventListener('click', () =>{
 	let userName = name.value.trim();
 	let userPass = password.value.trim();
@@ -12,7 +23,8 @@ submitBtn.addEventListener('click', () =>{
 		
 		if(!checkbox.checked){
 			alert(`Logged in as ${userName}`);
-			localStorage.clear();
+			localStorage.removeItem("name");
+			localStorage.removeItem("password");
 			existBtn.style.display = "none";
 		}else{
 			localStorage.setItem("name", userName);
