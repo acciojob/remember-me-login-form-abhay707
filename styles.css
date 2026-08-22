@@ -1,1 +1,24 @@
 /*  your css code here. If applicable */
+.name{
+	display:flex;
+}
+#username{
+	margin-left:10px;
+	margin-right:20px;
+}
+
+#password{
+	margin-left:10px;
+}
+
+#submit{
+	margin-top:20px;
+	width:100px;
+	height:30px;
+	border:1px solid black;
+}
+
+#existing{
+	margin-top:20px;
+	display:none;
+}
