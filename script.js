@@ -2,7 +2,7 @@ let username = document.getElementById("username");
 let password = document.getElementById("password");
 let checkbox = document.getElementById("checkbox");
 let submitBtn = document.getElementById("submit");
-let existBtn = document.getElementById("existing
+let existBtn = document.getElementById("existing");
 const form = document.querySelector("form");
 
 function toggleExistingButton() {
