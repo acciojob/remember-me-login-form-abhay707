@@ -4,13 +4,15 @@ let checkbox = document.getElementById("checkbox");
 let submitBtn = document.getElementById("submit");
 let existBtn = document.getElementById("existing");
 
-document.addEventListener("DOMContentLoaded", () => {
+function toggleExistingButton() {
     const storedName = localStorage.getItem("name");
     const storedPassword = localStorage.getItem("password");
 
     existBtn.style.display =
         storedName && storedPassword ? "block" : "none";
-});
+}
+
+document.addEventListener("DOMContentLoaded", toggleExistingButton);
 
 submitBtn.addEventListener('click', function (e) {
 	e.preventDefault();
@@ -27,6 +29,7 @@ submitBtn.addEventListener('click', function (e) {
 			existBtn.style.display = "none";
 			
 	}
+	toggleExistingButton();
 
 	alert("Logged in as " + userName);
 });
