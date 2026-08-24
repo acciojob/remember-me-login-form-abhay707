@@ -5,35 +5,29 @@ let submitBtn = document.getElementById("submit");
 let existBtn = document.getElementById("existing");
 
 window.addEventListener("DOMContentLoaded", () => {
-    if (
-        localStorage.getItem("name") &&
-        localStorage.getItem("password")
-    ) {
-        existBtn.style.display = "block";
-    } else {
-        existBtn.style.display = "none";
-    }
+  const hasSavedUser =
+    localStorage.getItem("name") && localStorage.getItem("password");
+
+  existingBtn.style.display = hasSavedUser ? "block" : "none";
 });
 
 submitBtn.addEventListener('click', () =>{
 	let userName = name.value.trim();
 	let userPass = password.value.trim();
 
-	if(userName && userPass){
-		
-		if(!checkbox.checked){
-			alert(`Logged in as ${userName}`);
+	if(!userName || !password){
+		alert("Fill all the fields");
+		return;
+	}
+
+	if(!checkbox.checked){
 			localStorage.removeItem("name");
 			localStorage.removeItem("password");
 			existBtn.style.display = "none";
-		}else{
+	}else{
 			localStorage.setItem("name", userName);
 			localStorage.setItem("password", userPass);
 			existBtn.style.display = "block";
-		}
-		
-	}else{
-		alert("Fill all the fields");
 	}
 	name.value = "";
 	password.value = "";
@@ -41,7 +35,7 @@ submitBtn.addEventListener('click', () =>{
 
 existBtn.addEventListener('click', () =>{
 	let storedName = localStorage.getItem("name");
-	alert(`Login as existing user ${storedName}`);
+	alert(`Login in as existing user ${storedName}`);
 })
 
 
