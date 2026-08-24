@@ -16,7 +16,9 @@ function toggleExistingButton() {
     }
 }
 
-toggleExistingButton();
+window.onload = function () {
+    toggleExistingButton();
+};
 
 form.addEventListener("submit", function (e) {
 	e.preventDefault();
