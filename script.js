@@ -6,7 +6,7 @@ let existBtn = document.getElementById("existing");
 
 window.onload = function () {
   const hasSavedUser =
-    localStorage.getItem("name") && localStorage.getItem("password");
+    localStorage.getItem("name") || localStorage.getItem("password");
 
   existBtn.style.display = hasSavedUser ? "block" : "none";
 });
