@@ -24,14 +24,15 @@ submitBtn.addEventListener('click', function () {
 		return;
 	}
 
-	if(!checkbox.checked){
-			localStorage.removeItem("name");
-			localStorage.removeItem("password");
-			existBtn.style.display = "none";
-	}else{
+	if(checkbox.checked){
 			localStorage.setItem("name", userName);
 			localStorage.setItem("password", userPass);
 			existBtn.style.display = "block";
+	}else{
+		localStorage.removeItem("name");
+			localStorage.removeItem("password");
+			existBtn.style.display = "none";
+			
 	}
 
 	alert("Logged in as " + userName);
