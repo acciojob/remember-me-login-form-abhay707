@@ -8,14 +8,14 @@ window.onload = function () {
   const hasSavedUser =
     localStorage.getItem("name") && localStorage.getItem("password");
 
-  existingBtn.style.display = hasSavedUser ? "block" : "none";
+  existBtn.style.display = hasSavedUser ? "block" : "none";
 });
 
 submitBtn.addEventListener('click', function () {
 	let userName = name.value.trim();
 	let userPass = password.value.trim();
 
-	if(!userName || !password){
+	if(!userName || !userPass){
 		alert("Fill all the fields");
 		return;
 	}
@@ -37,7 +37,7 @@ submitBtn.addEventListener('click', function () {
 
 existBtn.addEventListener('click', () =>{
 	let storedName = localStorage.getItem("name");
-	alert(`Login in as existing user ${storedName}`);
+	alert(`Login in as ${storedName}`);
 })
 
 
