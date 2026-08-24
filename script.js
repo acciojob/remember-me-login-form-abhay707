@@ -5,11 +5,15 @@ let submitBtn = document.getElementById("submit");
 let existBtn = document.getElementById("existing");
 
 window.onload = function () {
-  const hasSavedUser =
-    localStorage.getItem("name") || localStorage.getItem("password");
+  const storedName = localStorage.getItem("name");
+  const storedPassword = localStorage.getItem("password");
 
-  existBtn.style.display = hasSavedUser ? "block" : "none";
-});
+  if (storedName && storedPassword) {
+    existBtn.style.display = "block";
+  } else {
+    existBtn.style.display = "none";
+  }
+};
 
 submitBtn.addEventListener('click', function () {
 	let userName = name.value.trim();
