@@ -1,30 +1,31 @@
-let name = document.getElementById("username");
+let username = document.getElementById("username");
 let password = document.getElementById("password");
 let checkbox = document.getElementById("checkbox");
 let submitBtn = document.getElementById("submit");
-let existBtn = document.getElementById("existing");
+let existBtn = document.getElementById("existing
+const form = document.querySelector("form");
 
 function toggleExistingButton() {
-    const storedName = localStorage.getItem("name");
+    const storedName = localStorage.getItem("username");
     const storedPassword = localStorage.getItem("password");
 
     existBtn.style.display =
         storedName && storedPassword ? "block" : "none";
 }
 
-document.addEventListener("DOMContentLoaded", toggleExistingButton);
+toggleExistingButton();
 
-submitBtn.addEventListener('click', function (e) {
+form.addEventListener("submit", function (e) {
 	e.preventDefault();
-	let userName = name.value.trim();
+	let userName = username.value.trim();
 	let userPass = password.value.trim();
 
 	if(checkbox.checked){
-			localStorage.setItem("name", userName);
+			localStorage.setItem("username", userName);
 			localStorage.setItem("password", userPass);
 			existBtn.style.display = "block";
 	}else{
-		localStorage.removeItem("name");
+		localStorage.removeItem("username");
 			localStorage.removeItem("password");
 			existBtn.style.display = "none";
 			
@@ -35,7 +36,7 @@ submitBtn.addEventListener('click', function (e) {
 });
 
 existBtn.addEventListener('click', () =>{
-	let storedName = localStorage.getItem("name");
+	let storedName = localStorage.getItem("username");
 	alert(`Logged in as ${storedName}`);
 })
 
