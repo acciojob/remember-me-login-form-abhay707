@@ -4,14 +4,14 @@ let checkbox = document.getElementById("checkbox");
 let submitBtn = document.getElementById("submit");
 let existBtn = document.getElementById("existing");
 
-window.addEventListener("DOMContentLoaded", () => {
+window.onload = function () {
   const hasSavedUser =
     localStorage.getItem("name") && localStorage.getItem("password");
 
   existingBtn.style.display = hasSavedUser ? "block" : "none";
 });
 
-submitBtn.addEventListener('click', () =>{
+submitBtn.addEventListener('click', function () {
 	let userName = name.value.trim();
 	let userPass = password.value.trim();
 
@@ -29,6 +29,8 @@ submitBtn.addEventListener('click', () =>{
 			localStorage.setItem("password", userPass);
 			existBtn.style.display = "block";
 	}
+
+	alert("Logged in as " + userName);
 	name.value = "";
 	password.value = "";
 });
