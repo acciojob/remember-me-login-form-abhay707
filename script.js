@@ -6,11 +6,14 @@ let existBtn = document.getElementById("existing");
 const form = document.querySelector("form");
 
 function toggleExistingButton() {
-    const storedName = localStorage.getItem("username");
-    const storedPassword = localStorage.getItem("password");
-
-    existBtn.style.display =
-        storedName && storedPassword ? "block" : "none";
+    if (
+        localStorage.getItem("username") !== null &&
+        localStorage.getItem("password") !== null
+    ) {
+        existBtn.style.display = "block";
+    } else {
+        existBtn.style.display = "none";
+    }
 }
 
 toggleExistingButton();
