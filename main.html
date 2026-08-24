@@ -8,19 +8,22 @@
 
 <body>
 	<h1>Login Form</h1>
-	<div class="form">
-		<div class="name">
-			<label>User Name: </label><br>
-			<input type="text" placeholder="Username" id="username">
-			<label>Password</label>
-			<input type="password" placeholder="Password" id="password">
-		</div>
-		<br>
+	<form id="login-orm">
+		<input type="text" placeholder="Username" id="username">
+		<input type="password" placeholder="Password" id="password">
+		
 		<input type="checkbox" id="checkbox">
 		<label>Remember Me</label><br>
+		
 		<button type="submit" id="submit">Submit</button><br>
-		<button type="submit" id="existing" style="display:none;">Login as existing user</button>
-	</div>
+		
+		<button 
+			type="submit" 
+			id="existing" 
+			style="display:none;">
+			Login as existing user
+		</button>
+	</form>
     <script type="text/javascript" src="./script.js">
 </script>
 
